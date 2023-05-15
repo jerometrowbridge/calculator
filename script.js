@@ -56,11 +56,11 @@ numButtons.forEach((button => {
         firstOperand += buttonContent;
         display.textContent = firstOperand;
     }
-    else if (result != null) {
-        firstOperand = result;
-        secondOperand += buttonContent;
-        display.textContent = secondOperand;
-    }
+    // else if (result != null) {
+    //     firstOperand = result;
+    //     secondOperand += buttonContent;
+    //     display.textContent = secondOperand;
+    // }
     
     else {
         secondOperand += buttonContent;
@@ -70,12 +70,26 @@ numButtons.forEach((button => {
 })
 }))
 
+// Should handle a general "1 + 1 = 2" calculation as well as if someone want to keep
+// doing calculations like "1 + 2 - 1". 
 const operButtons = document.querySelectorAll(".operator-buttons");
 operButtons.forEach((button => {
     button.addEventListener('click', () => {
         let buttonContent = button.innerText;
+            if (previousOperator != null) {
+                num1 = parseFloat(firstOperand);
+                num2 = parseFloat(secondOperand);
+                operator = previousOperator;
+                result = operate(operator, num1, num2);
+                display.textContent = result;
+                firstOperand = result.toString();
+                secondOperand = '';
+                previousOperator = button.innerText;
+            }
+            else {
         previousOperator = button.innerText;
         display.textContent = buttonContent;
+            }
         
     })
 }))
@@ -110,11 +124,14 @@ equal.addEventListener('click', () => {
     operator = previousOperator;
     result = operate(operator, num1, num2);
     display.textContent = result;
+    firstOperand = result.toString();
     secondOperand = '';
+    previousOperator = null;
     console.log(result);
     console.log(previousOperator);
     console.log(firstOperand);
     console.log(secondOperand);
+    
 })
 
 // function handleEqualButtonClick() {

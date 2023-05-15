@@ -10,28 +10,43 @@
 <body>
     <div class="calc-body">
         <div class="display"></div>
+        <div class="bottom-container">
         <div class="number-button-container">
-            <button class="number-buttons">1</button>
-            <button class="number-buttons">2</button>
-            <button class="number-buttons">3</button>
-            <button class="number-buttons">4</button>
-            <button class="number-buttons">5</button>
-            <button class="number-buttons">6</button>
-            <button class="number-buttons">7</button>
-            <button class="number-buttons">8</button>
-            <button class="number-buttons">9</button>
-            <button class="number-buttons">0</button>
+            <div class="top-oper-row">
+                <button class="clear-button" id="top-oper">Clear</button>
+                <button class="plus-minus-button" id="top-oper">+/-</button>
+                <button class="percent-button" id="top-oper">%</button>
+            </div>
+            <div class="top-rows">
+                <button class="number-buttons">1</button>
+                <button class="number-buttons">2</button>
+                <button class="number-buttons">3</button>
+                <button class="number-buttons">4</button>
+                <button class="number-buttons">5</button>
+                <button class="number-buttons">6</button>
+                <button class="number-buttons">7</button>
+                <button class="number-buttons">8</button>
+                <button class="number-buttons">9</button>
+            </div>
+            <div class="zero-dot-row">
+                <button class="number-buttons" id="zero">0</button>
+                <button class="number-buttons" id="dot">.</button>
+            </div>
         </div>
-        <div class="operator-button-container">
-            <button class="operator-buttons">+</button>
-            <button class="operator-buttons">-</button>
-            <button class="operator-buttons">*</button>
-            <button class="operator-buttons">/</button>
+            <div class="operator-button-container">
+                <button class="operator-buttons">/</button>
+                <button class="operator-buttons">*</button>
+                <button class="operator-buttons">-</button>
+                <button class="operator-buttons">+</button>
+                <button class="equal-button">=</button>
+            </div>
+
         </div>
-        <div class="equal-clear-button-container">
-            <button class="equal-button">Equals</button>
-            <button class="clear-button">Clear</button>
-        </div>
+        
+       
+            
+            
+        
     </div>
 
 

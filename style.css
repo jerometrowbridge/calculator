@@ -1,0 +1,116 @@
+body {
+    display: flex;
+    justify-content: center;  
+}
+.top-rows {
+    display: flex;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.number-buttons {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    background-color: #4f5452;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+#top-oper {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    background-color: #4f5452;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.display {
+    width: auto;
+    height: 40px;
+    font-size: 20px;
+    background-color: rgba(52, 50, 50, 0.7);
+    color: white;
+    display: flex;
+    justify-content: right;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    align-items: center;
+    padding-right: 10px;
+    border-radius: 2px;
+
+}
+
+.calc-body {
+    background-color: black;
+    width: 400px;
+    height: 500px;
+    border-radius: 2px;
+}
+
+.equal-button,
+.operator-buttons {
+    display: inline-flex;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background-color: #d26805;
+    border: none;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+
+.bottom-container {
+    display: flex;
+}
+
+.number-button-container {
+    width: 75%;
+    
+}
+.operator-button-container {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.zero-dot-row {
+    display: flex;
+    width: auto;
+    justify-content: space-evenly;
+}
+
+#zero {
+    width: 175px;
+    border-radius: 12px;
+}
+
+#dot {
+   
+}
+
+.top-oper-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button {
+    margin: 4px;
+}
