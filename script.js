@@ -48,27 +48,40 @@ function operate(operator, num1, num2) {
     return result
 }
 
+//Pressing number button will display in 1st or 2nd operand. Added a check to see if a decimal already exists
+// in the number. If so, it will not allow it to be added. If you press a new number after selecting the equal button, the new 
+// number will replace the result as the firstOperand.
 const numButtons = document.querySelectorAll('.number-buttons');
 numButtons.forEach((button => {
     button.addEventListener('click', () => {
     let buttonContent = button.innerText;
-    if (previousOperator == null) {
-        firstOperand += buttonContent;
-        display.textContent = firstOperand;
+        if (previousOperator == null) {
+            if (buttonContent.toString() == "." && (firstOperand % 1 == 0)) {
+                firstOperand += buttonContent;
+                display.textContent = firstOperand;
+        }
+            else if (buttonContent.toString() != "." && display.textContent == result) {
+                firstOperand = buttonContent;
+                display.textContent = firstOperand;
+            }
+            else if (buttonContent.toString() != ".") {
+                firstOperand += buttonContent;
+                display.textContent = firstOperand;
+            }
     }
-    // else if (result != null) {
-    //     firstOperand = result;
-    //     secondOperand += buttonContent;
-    //     display.textContent = secondOperand;
-    // }
-    
-    else {
-        secondOperand += buttonContent;
-        display.textContent = secondOperand;
-    }
-    
-})
-}))
+        else {
+            if (buttonContent.toString() == "." && (secondOperand % 1 == 0)) {
+                secondOperand += buttonContent;
+                display.textContent = secondOperand;
+            }
+            else if (buttonContent.toString() != ".") {
+            secondOperand += buttonContent;
+            display.textContent = secondOperand;
+            }
+        }
+}
+)}))
+
 
 // Should handle a general "1 + 1 = 2" calculation as well as if someone want to keep
 // doing calculations like "1 + 2 - 1". 
@@ -111,10 +124,10 @@ console.log(display);
 //     }
 // }
 
-function handleOperatorButtonClick(button) {
-    oper = button.innerText;
-    updateDisplay(oper);
-}
+// function handleOperatorButtonClick(button) {
+//     oper = button.innerText;
+//     updateDisplay(oper);
+// }
 
 const equal = document.querySelector(".equal-button");
 equal.addEventListener('click', () => {
@@ -144,6 +157,7 @@ equal.addEventListener('click', () => {
 
 // }
 
+// clear variables & start fresh
 const clear = document.querySelector(".clear-button")
 clear.addEventListener('click', () => {
     firstOperand = '';
@@ -151,3 +165,31 @@ clear.addEventListener('click', () => {
     previousOperator = null;
     display.textContent = 0;
 })
+
+
+//Adding or removing negative sign to current number displaying
+const plusMinus = document.querySelector(".plus-minus-button");
+plusMinus.addEventListener('click', () => {
+    if (display.textContent.toString() == firstOperand.toString()) {
+        firstOperand *= -1
+        display.textContent = firstOperand;
+        console.log(firstOperand)
+    }
+    else {
+        secondOperand *= -1
+        display.textContent = secondOperand;
+        console.log(secondOperand)
+    }})
+
+const percentButton = document.querySelector(".percent-button");
+percentButton.addEventListener('click', () => {
+    if (display.textContent.toString() == firstOperand.toString()) {
+        firstOperand *= 0.01
+        display.textContent = firstOperand;
+        console.log(firstOperand)
+    }
+    else {
+        secondOperand *= 0.01
+        display.textContent = secondOperand;
+        console.log(secondOperand)
+    }})
